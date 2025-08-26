@@ -2,9 +2,7 @@ import { useState, useEffect } from "react";
 import styles from "./Header.module.css";
 import { Link } from "react-router-dom";
 
-import HeaderLogo from '../../public/icons/header-logo.svg'
-import BurgerOpen from "../../public/icons/burger.svg";
-import BurgerClose from "../../public/icons/close.svg";
+import HeaderLogo from "../../public/icons/logo.svg";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,86 +21,32 @@ export default function Header() {
         <div className={styles.container}>
           <div className={styles.logo}>
             <Link to="/">
-              <img
-                src={HeaderLogo}
-                alt="Harmoniq logo"
-              />
+              <img src={HeaderLogo} alt="Logo" />
             </Link>
           </div>
 
           <nav className={styles.navDesktop}>
             <ul>
               <li>
-                <Link to="/">Home</Link>
+                <Link to="/" onClick={() => setIsOpen(false)}>
+                  Home
+                </Link>
               </li>
               <li>
-                <Link to="/articles">Articles</Link>
-              </li>
-              <li>
-                <Link to="/users">Creators</Link>
-              </li>
-              <li>
-                <Link to="/login">Login</Link>
-              </li>
-              <li>
-                <Link to="/register" className={styles.joinNow}>
-                  Join Now
+                <Link to="/catalog" onClick={() => setIsOpen(false)}>
+                  Catalog
                 </Link>
               </li>
             </ul>
           </nav>
 
-          <Link to="/register" className={styles.joinNowTablet}>
-            Join Now
-          </Link>
           <button
-            className={styles.burger}
+            className={styles.view}
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? "Close menu" : "Open menu"}
-          >
-            <img
-              src={isOpen ? BurgerClose : BurgerOpen}
-              alt={isOpen ? "Close menu" : "Open menu"}
-              className={styles.burgerIcon}
-            />
-          </button>
+          ></button>
         </div>
       </header>
-      <div className={`${styles.menuOverlay} ${isOpen ? styles.open : ""}`}>
-        <nav className={styles.nav}>
-          <ul>
-            <li>
-              <Link to="/" onClick={() => setIsOpen(false)}>
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link to="/articles" onClick={() => setIsOpen(false)}>
-                Articles
-              </Link>
-            </li>
-            <li>
-              <Link to="/users" onClick={() => setIsOpen(false)}>
-                Creators
-              </Link>
-            </li>
-            <li>
-              <Link to="/login" onClick={() => setIsOpen(false)}>
-                Log In
-              </Link>
-            </li>
-            <li className={styles.joinNowMobile}>
-              <Link
-                to="/register"
-                className={styles.joinNow}
-                onClick={() => setIsOpen(false)}
-              >
-                Join Now
-              </Link>
-            </li>
-          </ul>
-        </nav>
-      </div>
     </>
   );
 }

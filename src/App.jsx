@@ -4,33 +4,16 @@ import RootLayout from "./layout/RootLayout";
 import { useSelector, useDispatch } from "react-redux";
 import { Loader } from "./components/Loader/Loader.jsx";
 import { isLoading } from "./redux/global/selectors.js";
-import { selectIsRefreshing } from "./redux/authorization/selectors.js";
-import { refresh } from "./redux/authorization/operations.js";
-// import { ModalErrorSave } from "./components/ModalErrorSave/ModalErrorSave.jsx";
+
 import { Toaster } from "react-hot-toast";
 import { setCurrentUser } from "./redux/user/userSlice";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage.jsx"));
-const ArticlesPage = lazy(() =>
-  import("./pages/ArticlesPage/ArticlesPage.jsx")
+const CatalogPage = lazy(() => import("./pages/CatalogPage/CatalogPage.jsx"));
+const CatalogDetailPage = lazy(() =>
+  import("./pages/CatalogDetailPage/CatalogDetailPage.jsx")
 );
-const ArticleDetailPage = lazy(() =>
-  import("./pages/ArticleDetailPage/ArticleDetailPage.jsx")
-);
-const AuthorsPage = lazy(() => import("./pages/AuthorsPage/AuthorsPage.jsx"));
-const RegisterPage = lazy(() =>
-  import("./pages/RegisterPage/RegisterPage.jsx")
-);
-const UploadPhotoPage = lazy(() =>
-  import("./pages/UploadPhotoPage/UploadPhotoPage.jsx")
-);
-const LoginPage = lazy(() => import("./pages/LoginPage/LoginPage.jsx"));
-const AuthorProfilePage = lazy(() =>
-  import("./pages/AuthorProfilePage/AuthorProfilePage.jsx")
-);
-const CreateArticlePage = lazy(() =>
-  import("./pages/CreateArticlePage/CreateArticlePage.jsx")
-);
+const RevievsPage = lazy(() => import("./pages/ RevievsPage/RevievsPage.jsx"));
 
 const router = createBrowserRouter([
   {

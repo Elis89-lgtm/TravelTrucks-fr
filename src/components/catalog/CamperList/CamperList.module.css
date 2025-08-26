@@ -1,0 +1,31 @@
+.list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.list li {
+  display: flex;
+  justify-content: flex-end;
+}
+.notFoundWrapper {
+  display: flex;
+  margin: 20% auto;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+.notFoundTitle {
+  text-align: center;
+  font-size: 32px;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-dark-blue);
+}
+.goBackLink {
+  color: #d84343;
+}
+.goBackLink:hover {
+  color: #d84343;
+}

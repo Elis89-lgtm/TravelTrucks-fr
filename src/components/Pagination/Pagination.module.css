@@ -13,22 +13,21 @@
   border-radius: 50%;
   width: 32px;
   height: 32px;
-  background-color: #649179;
+  background-color: #fcfeff;
   cursor: pointer;
   transition: 0.3s;
 }
 
 .iconWrapper:hover {
-  background-color: #374f42;
+  border-color: #d84343;
 }
 
 .icon {
-  width: 18px;
-  height: 18px;
-}
-
-.iconPrev {
-  transform: rotate(180deg);
+  border: 1px solid var(--button);
+  border-radius: 12px;
+  padding: 16px 40px;
+  width: 112px;
+  height: 96px;
 }
 
 .pagesContainer {
@@ -54,31 +53,6 @@
 .page.currentPage,
 .page:hover {
   font-weight: bold;
-  color: #fff;
-  background-color: #649179;
-}
-
-.ellipsis {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-}
-
-@media screen and (max-width: 770px) {
-  .pagesContainer {
-    margin: 0 4px;
-  }
-
-  .iconWrapper,
-  .page {
-    width: 40px;
-    height: 40px;
-  }
-
-  .ellipsis {
-    width: 20px;
-    height: 20px;
-  }
+  color: #d84343;
+  background-color: #fff;
 }

@@ -7,7 +7,7 @@
   justify-content: center;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(249, 248, 248, 0.6);
   backdrop-filter: blur(5px);
   z-index: 9999;
 }
@@ -26,31 +26,16 @@
 }
 
 .shinyText {
-  color: #374f42a4;
+  color: #6c717b;
   background: linear-gradient(
     120deg,
-    rgba(255, 255, 255, 0) 40%,
-    rgba(255, 255, 255, 0.8) 50%,
-    rgba(255, 255, 255, 0) 60%
+    rgba(176, 207, 228, 0) 40%,
+    rgba(249, 248, 248, 0.6) 50%,
+    rgba(76, 175, 228, 0) 60%
   );
   background-size: 200% 100%;
   -webkit-background-clip: text;
   background-clip: text;
   display: inline-block;
   animation: shine 5s linear infinite;
-}
-
-@keyframes shine {
-  0% {
-    background-position: 100%;
-  }
-  100% {
-    background-position: -100%;
-  }
-}
-
-@media screen and (max-width: 305px) {
-  .caption {
-    font-size: 22px;
-  }
 }

@@ -1,34 +1,37 @@
-import { createSlice, isFulfilled, isPending, isRejected } from '@reduxjs/toolkit'
+import { createSlice, isAnyOf } from "@reduxjs/toolkit";
+import { fetchCampers, fetchCampersById } from "../campers/operations";
 
 const slice = createSlice({
-  name: 'global',
+  name: "global",
   initialState: {
     isLoading: false,
-    isModalErrorSaveOpen: false,
   },
   reducers: {
     setLoadingState(state, action) {
-      state.isLoading = action.payload
-    },
-
-    setIsModalErrorSaveOpen(state, action) {
-      state.isModalErrorSaveOpen = action.payload
+      state.isLoading = action.payload;
     },
   },
   extraReducers: (builder) => {
     builder
-      .addMatcher(isPending, (state) => {
-        state.isLoading = true
-      })
-      .addMatcher(isFulfilled, (state) => {
-        state.isLoading = false
-      })
-      .addMatcher(isRejected, (state) => {
-        state.isLoading = false
-      })
+      .addMatcher(
+        isAnyOf(fetchCampers.pending, fetchCampersById.pending),
+        (state) => {
+          state.isLoading = true;
+        }
+      )
+      .addMatcher(
+        isAnyOf(
+          fetchCampers.fulfilled,
+          fetchCampers.rejected,
+          fetchCampersById.fulfilled,
+          fetchCampersById.rejected
+        ),
+        (state) => {
+          state.isLoading = false;
+        }
+      );
   },
-})
+});
 
-export const { setLoadingState, setIsModalErrorSaveOpen } = slice.actions
-
-export default slice.reducer
+export const { setLoadingState } = slice.actions;
+export default slice.reducer;

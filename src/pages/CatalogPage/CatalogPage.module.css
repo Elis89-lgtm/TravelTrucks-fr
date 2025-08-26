@@ -1,0 +1,99 @@
+.section {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 32px 16px;
+  box-sizing: border-box;
+}
+
+.title {
+  margin: 0 0 24px;
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.3;
+  color: #070721;
+}
+
+/* Дві колонки: ліва панель фільтрів + права зона контенту */
+.layout {
+  display: grid;
+  grid-template-columns: 292px 1fr; /* ширина сайдбара під твій FilterBar */
+  gap: 64px;
+  align-items: start;
+}
+
+/* Ліва колонка (фільтри) */
+.sidebar {
+  position: sticky;
+  top: 24px; /* залипання при скролі */
+  align-self: start;
+}
+
+/* Права колонка (список, панелі, пагінація) */
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Верхня панель: кількість та селект сортування */
+.infoPanel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 8px 0 16px;
+  border-bottom: 1px solid #eaecef;
+}
+
+.itemsTotal {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #667085; /* приглушений текст */
+}
+
+/* Порожній стан / помилка */
+.notFoundWrapper {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 48px 16px;
+  border: 1px dashed #eaecef;
+  border-radius: 12px;
+  background: #fafafa;
+}
+
+.notFoundTitle {
+  margin: 0 0 12px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #070721;
+}
+
+.goBackLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 0 16px;
+  border-radius: 100px;
+  text-decoration: none;
+  background: #e44848;
+  color: #fff;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+.goBackLink:hover {
+  background: #d84343;
+}
+
+/* Адаптив: на вузьких екранах фільтри стають над списком */
+@media (max-width: 992px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    position: static;
+  }
+}
