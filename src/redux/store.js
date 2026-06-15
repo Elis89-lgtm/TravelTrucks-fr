@@ -1,12 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import articlesReducer from "./articles/slice";
-import { homeDataReducer } from "./homeData/slice";
-import globalReducer from "./global/slice";
-import userReducer from "./user/userSlice";
-import authorArticlesReducer from "./authorArticles/authorArticlesSlice";
-
-import { authorizationReducer } from "./authorization/slice.js";
-import authorsReducer from "./authors/slice.js";
+import campersReducer from "./campers/slice.js";
 import {
   persistStore,
   persistReducer,
@@ -18,26 +11,16 @@ import {
   REGISTER,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import { addArticlesReducer } from "./addArticle/addArticlesSlice.js";
 
-const authPersistConfig = {
-  key: "authorization",
+const PersistConfig = {
+  key: "favoriteCampers",
   storage,
-  whitelist: ["token", "user", "isLoggedIn", "refreshToken"],
+  whitelist: ["favoriteCampers"],
 };
 
 export const store = configureStore({
   reducer: {
-    global: globalReducer,
-    addArticles: addArticlesReducer,
-    articles: articlesReducer,
-    homeData: homeDataReducer,
-    authorization: persistReducer(authPersistConfig, authorizationReducer),
-    // auth: authReducer,
-    // register: registerReducer,
-    user: userReducer,
-    authorArticles: authorArticlesReducer,
-    authors: authorsReducer,
+    campers: persistReducer(persistConfig, campersReducer),
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

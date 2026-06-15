@@ -5,17 +5,13 @@ export const fetchCampers = createAsyncThunk(
   "campers/fetchAll",
   async ({ page = 1, perPage = 12, filter = "all" } = {}, thunkAPI) => {
     try {
-      const params = { page, perPage };
+      const params = { page, perPage, filter };
 
-      if (filter === "popular") {
-        params.sortBy = "rate";
-        params.sortOrder = "desc";
-      }
       const response = await axios.get(
         "https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers",
         {
           params,
-        }
+        },
       );
       return {
         data: response.data?.data?.data ?? [],
@@ -25,23 +21,43 @@ export const fetchCampers = createAsyncThunk(
       };
     } catch (error) {
       return thunkAPI.rejectWithValue(
-        error.response?.data?.message || error.message
+        error.response?.data?.message || error.message,
       );
     }
-  }
+  },
 );
 export const fetchCampersById = createAsyncThunk(
-  "campers/fetchArticleById",
+  "campers/fetchCampersById",
   async (campersId, thunkAPI) => {
     try {
       const response = await axios.get(
-        `https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers/:id`
+        `https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers/:id`,
       );
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(
-        error.response?.data?.message || error.message
+        error.response?.data?.message || error.message,
       );
     }
-  }
+  },
 );
+export const fetchLocations = createAsyncThunk(
+  "campers/fetchLocations",
+  async (_, thunkApi) => {
+    try {
+      const { data } = await axios.get(
+        "https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers",
+      );
+      return response.data;
+    } catch (error) {
+      return thunkApi.rejectWithValue(
+        error.response?.data?.message || error.message,
+      );
+    }
+  },
+);
+
+export const setFilters = (filters) => ({
+  type: "campers/setFilters",
+  payload: filters,
+});

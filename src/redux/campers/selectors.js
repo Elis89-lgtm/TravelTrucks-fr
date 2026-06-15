@@ -8,6 +8,8 @@ export const selectSelectedCampers = (state) => state.campers.selectedCampers;
 export const selectTotalCampers = (state) => state.campers.total;
 export const selectHasNextPage = (state) => state.campers.hasNextPage;
 export const selectCampersPage = (state) => state.campers.page;
+export const selectFilters = (state) => state.campers.filters.filters;
+export const selectUniqueLocations = (state) => state.campers.uniqueLocations;
 
 // якщо тримаєш обране у campers
 export const selectFavoritesIds = (state) => state.campers.favoritesIds || [];

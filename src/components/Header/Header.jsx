@@ -1,52 +1,34 @@
-import { useState, useEffect } from "react";
-import styles from "./Header.module.css";
-import { Link } from "react-router-dom";
+import React from "react";
+import { NavLink, Link } from "react-router-dom";
 
-import HeaderLogo from "../../public/icons/logo.svg";
-
-export default function Header() {
-  const [isOpen, setIsOpen] = useState(false);
-
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-  }, [isOpen]);
-
+import css from "./Header.module.css";
+import logo from "../../img/logo.svg"; // імпортуємо SVG файл
+const Header = () => {
   return (
     <>
-      <header className={styles.header}>
-        <div className={styles.container}>
-          <div className={styles.logo}>
-            <Link to="/">
-              <img src={HeaderLogo} alt="Logo" />
-            </Link>
-          </div>
-
-          <nav className={styles.navDesktop}>
-            <ul>
-              <li>
-                <Link to="/" onClick={() => setIsOpen(false)}>
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link to="/catalog" onClick={() => setIsOpen(false)}>
-                  Catalog
-                </Link>
-              </li>
-            </ul>
+      <header>
+        <div className={css.header_container}>
+          <Link to="/">
+            <img src={logo} alt="Logo" className={css.logo} />
+          </Link>
+          <nav className={css.header_nav}>
+            <NavLink
+              className={({ isActive }) => (isActive ? css.active : css.link)}
+              to="/"
+            >
+              Home
+            </NavLink>
+            <NavLink
+              className={({ isActive }) => (isActive ? css.active : css.link)}
+              to="/catalog"
+            >
+              Catalog
+            </NavLink>
           </nav>
-
-          <button
-            className={styles.view}
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label={isOpen ? "Close menu" : "Open menu"}
-          ></button>
         </div>
       </header>
     </>
   );
-}
+};
+
+export default Header;

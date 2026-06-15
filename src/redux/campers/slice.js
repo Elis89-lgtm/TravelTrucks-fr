@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchCampers, fetchCampersById } from "./operations";
+import { fetchCampers, fetchCampersById, fetchLocations } from "./operations";
 
 const initialState = {
   items: [],
@@ -7,10 +7,10 @@ const initialState = {
   hasNextPage: false,
   page: 1,
   selectedCampers: null,
-
+  filters: {},
   isLoadingCampers: false,
   isErrorCampers: false,
-
+  locations: [],
   favoritesIds: [], // обране
 };
 
@@ -27,7 +27,13 @@ const slice = createSlice({
     setPage(state, { payload }) {
       state.page = payload;
     },
-
+    setFilters: (state, { payload }) => {
+      state.filters = payload; // Оновлюємо фільтри
+    },
+    resetPage: (state) => {
+      state.page = 1;
+      console.log(state.page);
+    },
     // обране
     toggleFavorite(state, { payload }) {
       const id = String(payload);
@@ -48,8 +54,12 @@ const slice = createSlice({
         s.total = total ?? s.total;
         s.hasNextPage = Boolean(hasNextPage);
         s.page = page ?? s.page;
-
         s.items = s.page > 1 ? [...s.items, ...data] : data;
+        const uniqueItems = items.filter(
+          (item) =>
+            !state.items.some((existingItem) => existingItem.id === item.id),
+        );
+        state.items = [...state.items, ...uniqueItems];
       })
       .addCase(fetchCampers.rejected, (s) => {
         s.isLoadingCampers = false;
@@ -68,9 +78,33 @@ const slice = createSlice({
         s.isLoadingCampers = false;
         s.isErrorCampers = true;
         s.selectedCampers = null;
+      })
+      .addCase(fetchLocations.pending, (s) => {
+        s.isLoadingCampers = true;
+        s.isErrorCampers = false;
+      })
+      .addCase(fetchLocations.fulfilled, (s, { payload }) => {
+        s.isLoadingCampers = false;
+        s.selectedCampers = payload.data;
+        const uniqueLocations = [
+          ...new Set(action.payload.map((item) => item.location)),
+        ];
+        state.uniqueLocations = uniqueLocations;
+      })
+      .addCase(fetchLocations.rejected, (s) => {
+        s.isLoadingCampers = false;
+        s.isErrorCampers = true;
+        s.selectedCampers = null;
       });
   },
 });
 
-export const { resetList, setPage, toggleFavorite } = slice.actions;
-export default slice.reducer;
+export const {
+  resetList,
+  setPage,
+  setFilters,
+  resetPage,
+  setLocations,
+  toggleFavorite,
+} = slice.actions;
+export default campersReducer = slice.reducer;
