@@ -1,4 +1,4 @@
-import sprite from "../../img/icons/sprite.svg";
+import sprite from "../../images/icons/sprite.svg";
 const Icon = ({ onClick, id, fill, size, className, stroke, ...props }) => {
   return (
     <svg

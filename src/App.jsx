@@ -10,10 +10,10 @@ import { Toaster } from "react-hot-toast";
 const HomePage = lazy(() => import("./pages/HomePage/HomePage.jsx"));
 const CatalogPage = lazy(() => import("./pages/CatalogPage/CatalogPage.jsx"));
 const CampersDetailPage = lazy(
-  () => import("./pages/CampersDetailPage/CampersDetailPage.jsx"),
+  () => import("./pages/CampersDetailsPage/CampersDetailsPage.jsx"),
 );
 const NotFoundPage = lazy(
-  () => import("./pages/ NotFoundPage/NotFoundPage.jsx"),
+  () => import("./pages/NotFoundPage/NotFoundPage.jsx"),
 );
 const CampersFeatures = lazy(
   () => import("./components/CampersFeatures/CampersFeatures.jsx"),

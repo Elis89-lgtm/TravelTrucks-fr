@@ -1,32 +1,24 @@
-import styles from "./HomePage.module.css";
-import Hero from "../../components/Hero/Hero";
+import React from "react";
+import s from "./HomePage.module.css";
+import { Link } from "react-router-dom";
+import Button from "../../components/Button/Button.jsx";
 
-import { useSelector, useDispatch } from "react-redux";
-import { selectIsError, selectIsLoading } from "../../redux/homeData/selectors";
-import { useEffect } from "react";
-import { fetchHomeCampers } from "../../redux/homeData/operations";
-import { Loader } from "../../components/Loader/Loader";
-import PopularArticles from "../../components/PopularArticles/PopularArticles";
-import TopCreators from "../../components/TopCreators/TopCreators";
-
-export default function HomePage() {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchHomeArticles());
-  }, [dispatch]);
-  useEffect(() => {
-    dispatch(fetchTopCreators());
-  }, [dispatch]);
-  const isLoading = useSelector(selectIsLoading);
-  const isError = useSelector(selectIsError);
-  return isLoading ? (
-    <Loader />
-  ) : (
-    <div className={styles.container}>
-      <Hero />
-      <About />
-      <PopularArticles />
-      <TopCreators />
-    </div>
+const HomePage = () => {
+  return (
+    <>
+      <div className={s.hero}>
+        <div className={s.title}>
+          <h1 className={s.title_main_text}>Campers of your dreams</h1>
+          <h2 className={s.title_text}>
+            You can find everything you want in our catalog
+          </h2>
+          <Link to="/catalog">
+            <Button text="View Now" className={s.title_button} />
+          </Link>
+        </div>
+      </div>
+    </>
   );
-}
+};
+
+export default HomePage;

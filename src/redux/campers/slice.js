@@ -11,19 +11,18 @@ const initialState = {
   isLoadingCampers: false,
   isErrorCampers: false,
   locations: [],
-  favoritesIds: [], // обране
+  favoritesIds: [],
 };
 
 const slice = createSlice({
   name: "campers",
   initialState,
   reducers: {
-    resetList(state) {
+    clearCampers: (state) => {
       state.items = [];
-      state.page = 1;
-      state.hasNextPage = false;
       state.total = 0;
     },
+
     setPage(state, { payload }) {
       state.page = payload;
     },
@@ -102,6 +101,7 @@ const slice = createSlice({
 export const {
   resetList,
   setPage,
+  clearCampers,
   setFilters,
   resetPage,
   setLocations,

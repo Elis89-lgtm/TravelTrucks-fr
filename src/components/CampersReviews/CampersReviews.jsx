@@ -1,10 +1,10 @@
-import { selectCurrentCamper } from "../../redux/campers/selectors.js";
+import { selectSelectedCampers } from "../../redux/campers/selectors.js";
 import Icon from "../Icon/Icon.jsx";
 import css from "./CampersReviews.module.css";
 import { useSelector } from "react-redux";
 
 const CampersReviews = () => {
-  const camper = useSelector(selectCurrentCamper);
+  const camper = useSelector(selectSelectedCampers);
   const reviews = camper?.reviews || []; // Перевіряємо наявність reviews
 
   const renderStars = (rating, reviewId) => {

@@ -6,10 +6,9 @@ import Select from "react-select";
 
 import styles from "./CatalogPage.module.css";
 
-import FilterBar from "../../components/catalog/FilterBar/FilterBar";
-import CamperList from "../../components/catalog/CamperList/CamperList";
+import Filters from "../../components/Filters/Filters.jsx";
+import CampersList from "../../components/CampersList/CampersList";
 import { Loader } from "../../components/Loader/Loader";
-import { Pagination } from "../../components/Pagination/Pagination";
 
 import { fetchCampers } from "../../redux/campers/operations";
 import {
@@ -78,7 +77,7 @@ export default function CatalogPage() {
   // завантаження списку
   useEffect(() => {
     dispatch(
-      fetchCampers({ filter: selectedOption.value, page, limit: PAGE_SIZE })
+      fetchCampers({ filter: selectedOption.value, page, limit: PAGE_SIZE }),
     );
   }, [dispatch, selectedOption, page]);
 

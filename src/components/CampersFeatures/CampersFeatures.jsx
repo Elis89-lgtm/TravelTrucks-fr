@@ -1,9 +1,9 @@
 import { useSelector } from "react-redux";
-import { selectCurrentCamper } from "../../redux/campers/selectors.js";
+import { selectSelectedCampers } from "../../redux/campers/selectors.js";
 import Details from "../Details/Details.jsx";
 
 const CampersFeatures = () => {
-  const camper = useSelector(selectCurrentCamper);
+  const camper = useSelector(selectSelectedCampers);
   return (
     <>
       <Details camper={camper} />

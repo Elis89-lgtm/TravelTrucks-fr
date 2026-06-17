@@ -1,25 +1,25 @@
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectCampers,
-  selectIsLoading,
-  selectPage,
+  selectLoadingCampers,
+  selectCampersPage,
   selectTotalCampers,
 } from "../../redux/campers/selectors.js";
 import CampersItem from "../CampersItem/CampersItem.jsx";
 import css from "./CampersList.module.css";
-import { getCampers } from "../../redux/campers/operations.js";
+import { fetchCampers } from "../../redux/campers/operations.js";
 import { setPage } from "../../redux/campers/slice.js"; // Імпортуємо екшен setPage
 import { useEffect } from "react";
-import Loader from "../Loader/Loader.jsx";
+import { Loader } from "../Loader/Loader.jsx";
 import Button from "../Button/Button.jsx";
 
 const CampersList = () => {
   const dispatch = useDispatch();
   const campers = useSelector(selectCampers); // Масив кемперів
   const totalCampers = useSelector(selectTotalCampers); // Загальна кількість кемперів
-  const isLoading = useSelector(selectIsLoading);
+  const isLoading = useSelector(selectLoadingCampers);
 
-  const page = useSelector(selectPage);
+  const page = useSelector(selectCampersPage);
   const limit = 4; // Кількість елементів на сторінку
   const totalPages = Math.ceil(totalCampers / limit); // Кількість сторінок
   const buttonIsActive = page < totalPages;
@@ -29,7 +29,7 @@ const CampersList = () => {
 
   // Використовуємо useEffect для завантаження даних після зміни сторінки або фільтрів
   useEffect(() => {
-    dispatch(getCampers({ page, limit, filterParams: filters }));
+    dispatch(fetchCampers({ page, limit, filterParams: filters }));
   }, [dispatch, page, filters]); // Залежності: зміна сторінки або фільтрів
 
   const loadMore = () => {
