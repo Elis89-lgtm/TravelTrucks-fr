@@ -54,11 +54,11 @@ const slice = createSlice({
         s.hasNextPage = Boolean(hasNextPage);
         s.page = page ?? s.page;
         s.items = s.page > 1 ? [...s.items, ...data] : data;
-        const uniqueItems = items.filter(
+        const uniqueItems = data.filter(
           (item) =>
-            !state.items.some((existingItem) => existingItem.id === item.id),
+            !s.items.some((existingItem) => existingItem.id === item.id),
         );
-        state.items = [...state.items, ...uniqueItems];
+        s.items = [...s.items, ...uniqueItems];
       })
       .addCase(fetchCampers.rejected, (s) => {
         s.isLoadingCampers = false;
@@ -86,9 +86,9 @@ const slice = createSlice({
         s.isLoadingCampers = false;
         s.selectedCampers = payload.data;
         const uniqueLocations = [
-          ...new Set(action.payload.map((item) => item.location)),
+          ...new Set(payload.data.map((item) => item.location)),
         ];
-        state.uniqueLocations = uniqueLocations;
+        s.locations = uniqueLocations;
       })
       .addCase(fetchLocations.rejected, (s) => {
         s.isLoadingCampers = false;
@@ -97,14 +97,6 @@ const slice = createSlice({
       });
   },
 });
-
-export const {
-  resetList,
-  setPage,
-  clearCampers,
-  setFilters,
-  resetPage,
-  setLocations,
-  toggleFavorite,
-} = slice.actions;
-export default campersReducer = slice.reducer;
+export const { setPage, clearCampers, setFilters, resetPage, toggleFavorite } =
+  slice.actions;
+export default slice.reducer;

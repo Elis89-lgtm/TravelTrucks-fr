@@ -12,10 +12,10 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
-const PersistConfig = {
+const persistConfig = {
   key: "favoriteCampers",
   storage,
-  whitelist: ["favoriteCampers"],
+  whitelist: ["favoritesIds"],
 };
 
 export const store = configureStore({

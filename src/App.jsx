@@ -1,9 +1,9 @@
 import "./App.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { lazy, useEffect } from "react";
+import { RouterProvider } from "react-router-dom";
+import { lazy } from "react";
 import RootLayout from "./layout/RootLayout";
-import { useSelector, useDispatch } from "react-redux";
-import Header from "./components/header/Header.jsx";
+
+import Header from "./components/Header/Header.jsx";
 import { Loader } from "./components/Loader/Loader.jsx";
 import { Toaster } from "react-hot-toast";
 
