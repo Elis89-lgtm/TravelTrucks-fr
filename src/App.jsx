@@ -1,7 +1,6 @@
 import "./App.css";
-import { RouterProvider } from "react-router-dom";
-import { lazy } from "react";
-import RootLayout from "./layout/RootLayout";
+import { Route, Routes } from "react-router-dom";
+import { lazy, Suspense } from "react";
 
 import Header from "./components/Header/Header.jsx";
 import { Loader } from "./components/Loader/Loader.jsx";
@@ -9,7 +8,7 @@ import { Toaster } from "react-hot-toast";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage.jsx"));
 const CatalogPage = lazy(() => import("./pages/CatalogPage/CatalogPage.jsx"));
-const CampersDetailPage = lazy(
+const CampersDetailsPage = lazy(
   () => import("./pages/CampersDetailsPage/CampersDetailsPage.jsx"),
 );
 const NotFoundPage = lazy(
@@ -32,9 +31,9 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/catalog" element={<CatalogPage />} />
-            <Route path="/catalog/:id" element={<CamperDetailsPage />}>
-              <Route path="features" element={<CamperFeatures />} />
-              <Route path="reviews" element={<CamperReviews />} />
+            <Route path="/catalog/:id" element={<CampersDetailsPage />}>
+              <Route path="features" element={<CampersFeatures />} />
+              <Route path="reviews" element={<CampersReviews />} />
             </Route>
             <Route path="*" element={<NotFoundPage />} />
           </Routes>

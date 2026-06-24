@@ -1,10 +1,10 @@
 import { Suspense } from "react";
-import { useSelector } from "react-redux";
+
 import { Outlet } from "react-router-dom";
 
-import Header from "../components/Header/Header";
+import Header from "../components/Header/Header.jsx";
 
-import { Loader } from "../components/Loader/Loader";
+import { Loader } from "../components/Loader/Loader.jsx";
 
 export default function RootLayout() {
   const style = {
@@ -25,8 +25,6 @@ export default function RootLayout() {
             <Outlet />
           </Suspense>
         </main>
-
-        <Footer />
       </div>
     </>
   );
