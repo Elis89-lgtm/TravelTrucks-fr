@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink, Link } from "react-router-dom";
 
 import css from "./Header.module.css";
-import logo from "../../images/icons/logo.svg"; // імпортуємо SVG файл
+import logo from "../../images/icons/Logo.svg"; // імпортуємо SVG файл
 const Header = () => {
   return (
     <>
