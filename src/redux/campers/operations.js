@@ -31,7 +31,7 @@ export const fetchCampersById = createAsyncThunk(
   async (campersId, thunkAPI) => {
     try {
       const response = await axios.get(
-        `https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers/:id`,
+        `https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers/${campersId}`,
       );
       return response.data;
     } catch (error) {
@@ -48,7 +48,7 @@ export const fetchLocations = createAsyncThunk(
       const { data } = await axios.get(
         "https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers",
       );
-      return response.data;
+      return data;
     } catch (error) {
       return thunkApi.rejectWithValue(
         error.response?.data?.message || error.message,

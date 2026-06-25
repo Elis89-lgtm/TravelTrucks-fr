@@ -5,16 +5,16 @@ import { setFilters } from "../../redux/campers/operations.js";
 import { clearCampers, resetPage } from "../../redux/campers/slice.js";
 import Icon from "../Icon/Icon.jsx";
 import Button from "../Button/Button.jsx";
-import Select from "react-select";
-import { components } from "react-select";
+import Select, { components as SelectComponents } from "react-select";
+
 import { selectUniqueLocations } from "../../redux/campers/selectors.js";
 
 // Кастомний компонент Placeholder
 const CustomPlaceholder = (props) => {
   return (
-    <components.Placeholder {...props}>
+    <selectComponents.Placeholder {...props}>
       <span style={{ color: "#aaa", fontSize: "14px" }}>{props.children}</span>
-    </components.Placeholder>
+    </selectComponents.Placeholder>
   );
 };
 
