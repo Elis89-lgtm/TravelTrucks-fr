@@ -12,9 +12,9 @@ import { selectUniqueLocations } from "../../redux/campers/selectors.js";
 // Кастомний компонент Placeholder
 const CustomPlaceholder = (props) => {
   return (
-    <selectComponents.Placeholder {...props}>
+    <SelectComponents.Placeholder {...props}>
       <span style={{ color: "#aaa", fontSize: "14px" }}>{props.children}</span>
-    </selectComponents.Placeholder>
+    </SelectComponents.Placeholder>
   );
 };
 
