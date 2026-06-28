@@ -1,4 +1,5 @@
 .hero {
+  height: 696px;
   background-image: image-set(
     url("../../images/Hero/hero_webp_1x.webp") 1x,
     url("../../images/Hero/hero_webp_2x.webp") 2x
