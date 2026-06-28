@@ -9,7 +9,7 @@ export const selectTotalCampers = (state) => state.campers.total;
 export const selectHasNextPage = (state) => state.campers.hasNextPage;
 export const selectCampersPage = (state) => state.campers.page;
 export const selectFilters = (state) => state.campers.filters.filters;
-export const selectUniqueLocations = (state) => state.campers.uniqueLocations;
+export const selectUniqueLocations = (state) => state.campers.locations;
 
 // якщо тримаєш обране у campers
 export const selectFavoritesIds = (state) => state.campers.favoritesIds || [];

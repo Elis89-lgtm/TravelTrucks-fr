@@ -131,7 +131,7 @@ const radio = ({ field, icon }) => {
 const Filters = () => {
   const dispatch = useDispatch();
 
-  const locations = useSelector(selectUniqueLocations);
+  const locations = useSelector(selectUniqueLocations) || [];
   const locationOptions = locations.map((location) => {
     const [country, city] = location.split(", ");
     return {
