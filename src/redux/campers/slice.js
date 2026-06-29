@@ -49,12 +49,11 @@ const slice = createSlice({
       })
       .addCase(fetchCampers.fulfilled, (s, { payload }) => {
         s.isLoadingCampers = false;
-        const { data, total, hasNextPage, page } = payload;
-        s.total = total ?? s.total;
-        s.hasNextPage = Boolean(hasNextPage);
-        s.page = page ?? s.page;
-        s.items = s.page > 1 ? [...s.items, ...data] : data;
-        const uniqueItems = data.filter(
+        const { items, total } = payload;
+
+        s.items = items;
+        s.total = total;
+        const uniqueItems = items.filter(
           (item) =>
             !s.items.some((existingItem) => existingItem.id === item.id),
         );
@@ -71,7 +70,7 @@ const slice = createSlice({
       })
       .addCase(fetchCampersById.fulfilled, (s, { payload }) => {
         s.isLoadingCampers = false;
-        s.selectedCampers = payload.data;
+        s.selectedCampers = payload;
       })
       .addCase(fetchCampersById.rejected, (s) => {
         s.isLoadingCampers = false;
@@ -84,7 +83,7 @@ const slice = createSlice({
       })
       .addCase(fetchLocations.fulfilled, (s, { payload }) => {
         s.isLoadingCampers = false;
-        s.selectedCampers = payload.data;
+        s.selectedCampers = payload;
         const uniqueLocations = [
           ...new Set(payload.data.map((item) => item.location)),
         ];
