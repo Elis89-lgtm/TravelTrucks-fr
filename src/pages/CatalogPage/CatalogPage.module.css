@@ -17,7 +17,7 @@
 /* Дві колонки: ліва панель фільтрів + права зона контенту */
 .layout {
   display: grid;
-  grid-template-columns: 292px 1fr; /* ширина сайдбара під твій FilterBar */
+  grid-template-columns: 292px 1fr; /* ширина сайдбара під FilterBar */
   gap: 64px;
   align-items: start;
 }

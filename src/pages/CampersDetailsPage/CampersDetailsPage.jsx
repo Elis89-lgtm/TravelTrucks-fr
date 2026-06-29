@@ -25,7 +25,7 @@ const CampersDetailsPage = () => {
     <>
       {loading && <p>Loading...</p>}
       {error && <p>Error: {error}</p>}
-      {currentCamper && <CamperDetails />}
+      {currentCamper && <CampersDetails />}
     </>
   );
 };
