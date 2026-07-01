@@ -48,7 +48,7 @@ const CampersList = () => {
         <div className={css.campers_list_container}>
           <ul className={css.campers_list}>
             {campers.map((camper) => (
-              <CampersListItem key={camper.id} {...camper} />
+              <CampersItem key={camper.id} {...camper} />
             ))}
           </ul>
           {isLoading && <Loader />}
