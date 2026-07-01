@@ -139,21 +139,16 @@ import Filters from "../../components/Filters/Filters.jsx";
 import css from "./CatalogPage.module.css";
 import { useDispatch } from "react-redux";
 import { clearCampers, resetPage } from "../../redux/campers/slice.js";
-import {
-  fetchCampers,
-  fetchLocations,
-} from "../../redux/campers/operations.js";
+import { fetchLocations } from "../../redux/campers/operations.js";
 
 const CatalogPage = () => {
   const dispatch = useDispatch();
-  useEffect;
-  (() => {
+  useEffect(() => {
     dispatch(resetPage());
     dispatch(clearCampers());
-    dispatch(fetchCampers());
+    // dispatch(fetchCampers());
     dispatch(fetchLocations());
-  },
-    [dispatch]);
+  }, [dispatch]);
   return (
     <div className={css.catalog_container}>
       <Filters />
