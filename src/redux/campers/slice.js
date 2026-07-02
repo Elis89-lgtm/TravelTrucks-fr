@@ -85,7 +85,7 @@ const slice = createSlice({
         s.isLoadingCampers = false;
         s.selectedCampers = payload;
         const uniqueLocations = [
-          ...new Set(payload.data.map((item) => item.location)),
+          ...new Set(payload.map((item) => item.location)),
         ];
         s.locations = uniqueLocations;
       })
