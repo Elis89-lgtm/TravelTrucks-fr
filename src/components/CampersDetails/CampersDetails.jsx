@@ -2,12 +2,12 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import MoreInfo from "../MoreInfo/MoreInfo.jsx";
 import css from "./CampersDetails.module.css";
-import { selectSelectedCampers } from "../../redux/campers/selectors.js";
+import { selectCurrentCamper } from "../../redux/campers/selectors.js";
 import Icon from "../Icon/Icon.jsx";
 import { Loader } from "../Loader/Loader.jsx";
 
 const CampersDetails = () => {
-  const camper = useSelector(selectSelectedCampers);
+  const camper = useSelector(selectCurrentCamper);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalImage, setModalImage] = useState("");
 

@@ -1,4 +1,4 @@
-import { selectFavoritesIds } from "../../redux/campers/selectors.js";
+import { selectFavorite } from "../../redux/campers/selectors.js";
 import Icon from "../Icon/Icon.jsx";
 import css from "./CampersItem.module.css";
 import { Link } from "react-router-dom";
@@ -27,7 +27,7 @@ const CampersItem = ({
   transmission,
 }) => {
   const dispatch = useDispatch();
-  const favoriteCampers = useSelector(selectFavoritesIds); // Отримуємо список улюблених кемперів з Redux
+  const favoriteCampers = useSelector(selectFavorite); // Отримуємо список улюблених кемперів з Redux
 
   const handleClick = () => {
     dispatch(toggleFavorite(id)); // Викликаємо action для додавання або видалення ID з улюблених
