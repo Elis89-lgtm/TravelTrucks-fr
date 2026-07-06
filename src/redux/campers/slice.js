@@ -83,7 +83,7 @@ const slice = createSlice({
       })
       .addCase(fetchLocations.fulfilled, (s, { payload }) => {
         s.isLoadingCampers = false;
-        s.selectedCampers = payload;
+        // s.selectedCampers = payload;
         const uniqueLocations = [
           ...new Set(payload.map((item) => item.location)),
         ];

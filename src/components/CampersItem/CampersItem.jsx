@@ -27,13 +27,13 @@ const CampersItem = ({
   transmission,
 }) => {
   const dispatch = useDispatch();
-  const favoriteCampers = useSelector(selectFavorite); // Отримуємо список улюблених кемперів з Redux
+  const favoriteCampers = useSelector(selectFavorite) || []; // Отримуємо список улюблених кемперів з Redux
 
   const handleClick = () => {
     dispatch(toggleFavorite(id)); // Викликаємо action для додавання або видалення ID з улюблених
   };
 
-  const isFavorite = favoriteCampers.includes(id); // Перевіряємо, чи цей кемпер вже в улюблених
+  const isFavorite = favoriteCampers.includes(String(id)); // Перевіряємо, чи цей кемпер вже в улюблених
 
   return (
     <li className={css.item}>
