@@ -46,28 +46,28 @@ const filterOptions = [
   {
     id: "AC",
     label: "AC",
-    icon: <Icon className={css.icon} id="icon-wind" size="32px" />,
+    icon: <Icon className={css.icon} id="icon-AC" size="32px" />,
   },
   {
     id: "transmission",
     label: "Automatic",
     value: "automatic",
-    icon: <Icon className={css.icon} id="icon-diagram" size="32px" />,
+    icon: <Icon className={css.icon} id="icon-automatic" size="32px" />,
   },
   {
     id: "kitchen",
     label: "Kitchen",
-    icon: <Icon className={css.icon} id="icon-cup" size="32px" />,
+    icon: <Icon className={css.icon} id="icon-kitchen" size="32px" />,
   },
   {
     id: "TV",
     label: "TV",
-    icon: <Icon className={css.icon} id="icon-tv" size="32px" />,
+    icon: <Icon className={css.icon} id="icon-TV" size="32px" />,
   },
   {
     id: "bathroom",
     label: "Bathroom",
-    icon: <Icon className={css.icon} id="icon-shower" size="32px" />,
+    icon: <Icon className={css.icon} id="icon-bathroom" size="32px" />,
   },
 ];
 
@@ -75,17 +75,17 @@ const form = [
   {
     id: "panelTruck",
     label: "Van",
-    icon: <Icon className={css.icon} id="icon-bi_grid_1x2" size="32px" />,
+    icon: <Icon className={css.icon} id="icon-van" size="32px" />,
   },
   {
     id: "fullyIntegrated",
     label: "Fully Integrated",
-    icon: <Icon className={css.icon} id="icon-bi_grid" size="32px" />,
+    icon: <Icon className={css.icon} id="icon-fully-integrated" size="32px" />,
   },
   {
     id: "alcove",
     label: "Alcove",
-    icon: <Icon className={css.icon} id="icon-bi_grid_3x3" size="32px" />,
+    icon: <Icon className={css.icon} id="icon-alcove" size="32px" />,
   },
 ];
 
