@@ -11,7 +11,7 @@ const CampersDetailsPage = () => {
   const { id } = useParams(); // Отримуємо id з URL
   const dispatch = useDispatch();
 
-  const { loading, error, currentCamper } = useSelector(
+  const { isLoadingCampers, isErrorCampers, selectedCampers } = useSelector(
     (state) => state.campers,
   ); // Дістаємо стан з Redux
 
@@ -23,9 +23,9 @@ const CampersDetailsPage = () => {
 
   return (
     <>
-      {loading && <p>Loading...</p>}
-      {error && <p>Error: {error}</p>}
-      {currentCamper && <CampersDetails />}
+      {isLoadingCampers && <p>Loader</p>}
+      {isErrorCampers && <p>Error</p>}
+      {selectedCampers && <CampersDetails />}
     </>
   );
 };

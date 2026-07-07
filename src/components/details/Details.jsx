@@ -2,6 +2,7 @@ import Icon from "../Icon/Icon.jsx";
 import css from "./Details.module.css";
 
 const Details = ({ camper }) => {
+  if (!camper) return null;
   const {
     AC,
     bathroom,
@@ -26,7 +27,7 @@ const Details = ({ camper }) => {
       <div className={css.thumb_4}>
         {transmission === "automatic" && (
           <div className={css.box}>
-            <Icon className={css.icon} id="icon-diagram" size="20px" />
+            <Icon className={css.icon} id="icon-automatic" size="20px" />
             <p className={css.option}>{transmission}</p>
           </div>
         )}
@@ -36,19 +37,19 @@ const Details = ({ camper }) => {
         </div>
         {AC && (
           <div className={css.box}>
-            <Icon className={css.icon} id="icon-wind" size="20px" />
+            <Icon className={css.icon} id="icon-AC" size="20px" />
             <p className={css.option}>AC</p>
           </div>
         )}
         {bathroom && (
           <div className={css.box}>
-            <Icon className={css.icon} id="icon-shower" size="20px" />
+            <Icon className={css.icon} id="icon-bathroom" size="20px" />
             <p className={css.option}>Bathroom</p>
           </div>
         )}
         {kitchen && (
           <div className={css.box}>
-            <Icon className={css.icon} id="icon-cup" size="20px" />
+            <Icon className={css.icon} id="icon-kitchen" size="20px" />
             <p className={css.option}>Kitchen</p>
           </div>
         )}
