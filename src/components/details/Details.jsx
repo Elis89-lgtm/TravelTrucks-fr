@@ -32,7 +32,7 @@ const Details = ({ camper }) => {
           </div>
         )}
         <div className={css.box}>
-          <Icon className={css.icon} id="icon-petrol" size="20px" />
+          <Icon className={css.icon} id="icon-fuel-pump" size="20px" />
           <p className={css.option}>{engine}</p>
         </div>
         {AC && (
@@ -55,7 +55,7 @@ const Details = ({ camper }) => {
         )}
         {TV && (
           <div className={css.box}>
-            <Icon className={css.icon} id="icon-tv" size="20px" />
+            <Icon className={css.icon} id="icon-TV" size="20px" />
             <p className={css.option}>TV</p>
           </div>
         )}

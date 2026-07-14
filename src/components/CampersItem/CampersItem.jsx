@@ -48,7 +48,7 @@ const CampersItem = ({
                 &#x20AC;{price ? Number(price).toFixed(2) : "0.00"}
               </p>
               <Icon
-                id={"icon-heart"}
+                id="icon-heart"
                 size="24px"
                 className={isFavorite ? css.heartIconFilled : css.heart_icon} // Динамічно вибираємо клас із CSS модуля
                 onClick={handleClick} // Обробник кліку для додавання/видалення з улюблених
@@ -90,35 +90,35 @@ const CampersItem = ({
         <div className={css.thumb_4}>
           {transmission === "automatic" && (
             <div className={css.box}>
-              <Icon className={css.icon} id="icon-diagram" size="20px" />
+              <Icon className={css.icon} id="icon-automatic" size="20px" />
               <p className={css.option}>{transmission}</p>
             </div>
           )}
           <div className={css.box}>
-            <Icon className={css.icon} id="icon-petrol" size="20px" />
+            <Icon className={css.icon} id="icon-fuel-pump" size="20px" />
             <p className={css.option}>{engine}</p>
           </div>
           {AC && (
             <div className={css.box}>
-              <Icon className={css.icon} id="icon-wind" size="20px" />
+              <Icon className={css.icon} id="icon-AC" size="20px" />
               <p className={css.option}>AC</p>
             </div>
           )}
           {bathroom && (
             <div className={css.box}>
-              <Icon className={css.icon} id="icon-shower" size="20px" />
+              <Icon className={css.icon} id="icon-bathroom" size="20px" />
               <p className={css.option}>Bathroom</p>
             </div>
           )}
           {kitchen && (
             <div className={css.box}>
-              <Icon className={css.icon} id="icon-cup" size="20px" />
+              <Icon className={css.icon} id="icon-kitchen" size="20px" />
               <p className={css.option}>Kitchen</p>
             </div>
           )}
           {TV && (
             <div className={css.box}>
-              <Icon className={css.icon} id="icon-tv" size="20px" />
+              <Icon className={css.icon} id="icon-TV" size="20px" />
               <p className={css.option}>TV</p>
             </div>
           )}
