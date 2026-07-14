@@ -78,7 +78,7 @@ const Details = ({ camper }) => {
               id="icon-microwave"
               size="20px"
               fill="none"
-              stroke="#101828"
+              stroke="currentColor"
             />
             <p className={css.option}>Microwave</p>
           </div>
