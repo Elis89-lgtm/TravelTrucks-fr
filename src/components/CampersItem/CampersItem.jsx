@@ -50,6 +50,8 @@ const CampersItem = ({
               <Icon
                 id="icon-heart"
                 size="24px"
+                fill={isFavorite ? "#E44848" : "none"}
+                stroke="#101828"
                 className={isFavorite ? css.heartIconFilled : css.heart_icon} // Динамічно вибираємо клас із CSS модуля
                 onClick={handleClick} // Обробник кліку для додавання/видалення з улюблених
               />
@@ -60,7 +62,7 @@ const CampersItem = ({
             <Icon
               id="icon-star"
               className={css.rating_icon}
-              stroke="none"
+              // stroke="none"
               fill="#FFC531"
               size="16px"
             />
@@ -74,8 +76,9 @@ const CampersItem = ({
               <Icon
                 className={css.rating_icon}
                 id="icon-map"
-                stroke="none"
-                fill="inherit"
+                // stroke="none"
+                // fill="inherit"
+                fill="#101828"
                 size="16px"
               />
               <p className={css.location}>{location}</p>
@@ -95,7 +98,12 @@ const CampersItem = ({
             </div>
           )}
           <div className={css.box}>
-            <Icon className={css.icon} id="icon-fuel-pump" size="20px" />
+            <Icon
+              className={css.icon}
+              id="icon-fuel-pump"
+              fill="#101828"
+              size="20px"
+            />
             <p className={css.option}>{engine}</p>
           </div>
           {AC && (
