@@ -156,25 +156,13 @@ const CampersItem = ({
           )}
           {gas && (
             <div className={css.box}>
-              <Icon
-                className={css.icon}
-                id="icon-gas"
-                fill="none"
-                stroke="#101828"
-                size="20px"
-              />
+              <Icon className={css.icon} id="icon-gas" size="20px" />
               <p className={css.option}>Gas</p>
             </div>
           )}
           {water && (
             <div className={css.box}>
-              <Icon
-                className={css.icon}
-                id="icon-water"
-                fill="none"
-                stroke="#101828"
-                size="20px"
-              />
+              <Icon className={css.icon} id="icon-water" size="20px" />
               <p className={css.option}>Water</p>
             </div>
           )}

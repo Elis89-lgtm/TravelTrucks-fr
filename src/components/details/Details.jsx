@@ -73,37 +73,19 @@ const Details = ({ camper }) => {
         )}
         {microwave && (
           <div className={css.box}>
-            <Icon
-              className={css.icon}
-              id="icon-microwave"
-              size="20px"
-              fill="none"
-              stroke="currentColor"
-            />
+            <Icon className={css.icon} id="icon-microwave" size="20px" s />
             <p className={css.option}>Microwave</p>
           </div>
         )}
         {gas && (
           <div className={css.box}>
-            <Icon
-              className={css.icon}
-              id="icon-gas"
-              fill="none"
-              stroke="#101828"
-              size="20px"
-            />
+            <Icon className={css.icon} id="icon-gas" size="20px" />
             <p className={css.option}>Gas</p>
           </div>
         )}
         {water && (
           <div className={css.box}>
-            <Icon
-              className={css.icon}
-              id="icon-water"
-              fill="none"
-              stroke="#101828"
-              size="20px"
-            />
+            <Icon className={css.icon} id="icon-water" size="20px" />
             <p className={css.option}>Water</p>
           </div>
         )}
