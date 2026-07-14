@@ -16,8 +16,8 @@ const Icon = ({ onClick, id, fill, size, className, stroke, ...props }) => {
       className={className || ""}
       width={size}
       height={size}
-      fill={fill}
-      stroke={stroke}
+      fill={fill ?? "none"}
+      stroke={stroke ?? "currentColor"}
       {...props}
     >
       <use href={`${sprite}#${id}`} />
