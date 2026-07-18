@@ -24,7 +24,7 @@ const Details = ({ camper }) => {
   } = camper;
   return (
     <div className={css.container}>
-      <div className={css.thumb_4}>
+      <div className={css.amenities}>
         {transmission === "automatic" && (
           <div className={css.box}>
             <Icon className={css.icon} id="icon-automatic" size="20px" />
