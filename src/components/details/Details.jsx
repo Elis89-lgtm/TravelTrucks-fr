@@ -73,7 +73,7 @@ const Details = ({ camper }) => {
         )}
         {microwave && (
           <div className={css.box}>
-            <Icon className={css.icon} id="icon-microwave" size="20px" s />
+            <Icon className={css.icon} id="icon-microwave" size="20px" />
             <p className={css.option}>Microwave</p>
           </div>
         )}
