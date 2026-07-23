@@ -53,11 +53,6 @@ const slice = createSlice({
 
         s.items = items;
         s.total = total;
-        // const uniqueItems = items.filter(
-        //   (item) =>
-        //     !s.items.some((existingItem) => existingItem.id === item.id),
-        // );
-        // s.items = [...s.items, ...uniqueItems];
       })
       .addCase(fetchCampers.rejected, (s) => {
         s.isLoadingCampers = false;

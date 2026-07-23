@@ -39,7 +39,7 @@ export const fetchLocations = createAsyncThunk(
   },
 );
 
-export const setFilters = (filters) => ({
-  type: "campers/setFilters",
-  payload: filters,
-});
+// export const setFilters = (filters) => ({
+//   type: "campers/setFilters",
+//   payload: filters,
+// });

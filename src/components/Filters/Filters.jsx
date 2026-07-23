@@ -1,8 +1,12 @@
 import css from "./Filters.module.css";
 import { Formik, Field, Form } from "formik";
 import { useDispatch, useSelector } from "react-redux";
-import { setFilters } from "../../redux/campers/operations.js";
-import { clearCampers, resetPage } from "../../redux/campers/slice.js";
+// import { setFilters } from "../../redux/campers/operations.js";
+import {
+  clearCampers,
+  resetPage,
+  setFilters,
+} from "../../redux/campers/slice.js";
 import Icon from "../Icon/Icon.jsx";
 import Button from "../Button/Button.jsx";
 import Select, { components as SelectComponents } from "react-select";
